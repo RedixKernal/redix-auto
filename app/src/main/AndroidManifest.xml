@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="androidx.car.app.ACCESS_SURFACE" />
+    <uses-permission android:name="androidx.car.app.MAP_TEMPLATES" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <queries>
+        <provider
+            android:name="androidx.car.app.connection.provider"
+            android:authorities="androidx.car.app.connection" />
+        <package android:name="com.google.android.projection.gearhead" />
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:appCategory="game"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:hardwareAccelerated="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.RedixCarNative">
+
+        <!-- Distraction optimized for in-vehicle driving -->
+        <meta-data
+            android:name="distractionOptimized"
+            android:value="true" />
+
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="5.0" />
+
+        <meta-data
+            android:name="androidx.car.app.minCarApiLevel"
+            android:value="7" />
+
+        <!-- Automotive capability descriptor for Android Auto -->
+        <meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc" />
+
+        <meta-data
+            android:name="com.google.android.gms.car.notification.SmallIcon"
+            android:resource="@mipmap/ic_launcher" />
+
+        <!-- Android for Cars App Service (Native In-Car Surface Video & Web Engine) -->
+        <service
+            android:name=".car.RedixCarAppService"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:icon="@mipmap/ic_launcher">
+            <intent-filter>
+                <action android:name="androidx.car.app.CarAppService" />
+                <category android:name="androidx.car.app.category.NAVIGATION" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.car.app.CarAppService" />
+                <category android:name="androidx.car.app.category.POI" />
+            </intent-filter>
+        </service>
+
+        <!-- Main In-Car Launchable Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize|screenLayout|density"
+            android:resizeableActivity="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.CAR_LAUNCHER" />
+                <category android:name="androidx.car.app.category.NAVIGATION" />
+                <category android:name="android.intent.category.APP_MAPS" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.CAR_LAUNCHER" />
+                <category android:name="androidx.car.app.category.NAVIGATION" />
+                <category android:name="android.intent.category.APP_MAPS" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+            </intent-filter>
+            <layout
+                android:gravity="center"
+                android:minWidth="1dp"
+                android:minHeight="1dp"
+                android:defaultWidth="800dp"
+                android:defaultHeight="480dp" />
+            <meta-data
+                android:name="distractionOptimized"
+                android:value="true" />
+            <meta-data
+                android:name="android.max_aspect"
+                android:value="5.0" />
+        </activity>
+    </application>
+
+</manifest>

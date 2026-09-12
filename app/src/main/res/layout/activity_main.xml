@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#070A10">
+
+    <!-- Edge-to-Edge Web Engine Display -->
+    <WebView
+        android:id="@+id/phonePreviewWebView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topBarsContainer"
+        android:layout_alignParentBottom="true"
+        android:background="#000000" />
+
+    <!-- Fullscreen Custom HTML5 Video Container (Native YouTube Fullscreen) -->
+    <FrameLayout
+        android:id="@+id/customViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="#000000" />
+
+    <!-- Top Toolbar Container: Single Ultra-Slim Line (32dp) -->
+    <LinearLayout
+        android:id="@+id/topBarsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:background="#0C1018">
+
+        <!-- Single Ultra-Slim Line: Redix + Presets + Fullscreen + Hide -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <!-- REDIX Logo Badge -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚡ REDIX"
+                android:textColor="#FF2A44"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="10dp" />
+
+            <!-- Presets: YouTube, Spotify, Google -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/btnPresetYoutube"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:text="▶ YouTube"
+                    android:textColor="#FF4D61"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:background="@drawable/bg_chip_youtube"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/btnPresetSpotify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:text="🎧 Spotify"
+                    android:textColor="#22E069"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:background="@drawable/bg_chip_spotify"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/btnPresetGoogle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:text="🔍 Google"
+                    android:textColor="#A8B7CD"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:background="@drawable/bg_chip_google"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+
+            <!-- Fullscreen Button -->
+            <TextView
+                android:id="@+id/btnFullscreen"
+                android:layout_width="28dp"
+                android:layout_height="26dp"
+                android:text="⛶"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:background="@drawable/bg_icon_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginStart="6dp" />
+
+            <!-- Hide Toolbar Button -->
+            <TextView
+                android:id="@+id/btnHideToolbar"
+                android:layout_width="28dp"
+                android:layout_height="26dp"
+                android:text="▲"
+                android:textColor="#8E9BAE"
+                android:textSize="11sp"
+                android:gravity="center"
+                android:background="@drawable/bg_icon_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginStart="4dp" />
+        </LinearLayout>
+
+        <!-- Subtle divider line -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#161E2C" />
+    </LinearLayout>
+
+    <!-- Floating Restore Toolbar Pill (Visible when toolbar is hidden or in fullscreen) -->
+    <TextView
+        android:id="@+id/btnRestoreToolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="▼ MENU"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/bg_floating_btn"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true" />
+
+</RelativeLayout>

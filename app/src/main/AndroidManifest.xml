@@ -19,7 +19,6 @@
 
     <application
         android:allowBackup="true"
-        android:appCategory="game"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -28,9 +27,13 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.RedixCarNative">
 
-        <!-- Distraction optimized for in-vehicle driving -->
+        <!-- Distraction optimized for in-vehicle driving and in-motion playback -->
         <meta-data
             android:name="distractionOptimized"
+            android:value="true" />
+
+        <meta-data
+            android:name="androidx.car.app.distractionOptimized"
             android:value="true" />
 
         <meta-data
@@ -39,7 +42,7 @@
 
         <meta-data
             android:name="androidx.car.app.minCarApiLevel"
-            android:value="7" />
+            android:value="1" />
 
         <!-- Automotive capability descriptor for Android Auto -->
         <meta-data
@@ -64,6 +67,12 @@
                 <action android:name="androidx.car.app.CarAppService" />
                 <category android:name="androidx.car.app.category.POI" />
             </intent-filter>
+            <meta-data
+                android:name="distractionOptimized"
+                android:value="true" />
+            <meta-data
+                android:name="androidx.car.app.distractionOptimized"
+                android:value="true" />
         </service>
 
         <!-- Main In-Car Launchable Activity -->
@@ -99,6 +108,9 @@
                 android:defaultHeight="480dp" />
             <meta-data
                 android:name="distractionOptimized"
+                android:value="true" />
+            <meta-data
+                android:name="androidx.car.app.distractionOptimized"
                 android:value="true" />
             <meta-data
                 android:name="android.max_aspect"

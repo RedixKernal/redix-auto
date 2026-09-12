@@ -81,10 +81,8 @@ class RedixCarPresentation(
         // Presets
         val presets = listOf(
             "▶ YouTube" to "https://m.youtube.com",
-            "🎮 Twitch" to "https://m.twitch.tv",
-            "🗺 Maps" to "https://maps.google.com",
-            "🎵 SoundCloud" to "https://m.soundcloud.com",
-            "🎧 Spotify" to "https://open.spotify.com"
+            "🎧 Spotify" to "https://open.spotify.com",
+            "🔍 Google" to "https://www.google.com"
         )
 
         for ((label, url) in presets) {

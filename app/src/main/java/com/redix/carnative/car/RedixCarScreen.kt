@@ -96,17 +96,17 @@ class RedixCarScreen(carContext: CarContext) : Screen(carContext) {
             )
             .addAction(
                 Action.Builder()
-                    .setTitle("Twitch")
+                    .setTitle("Spotify")
                     .setOnClickListener {
-                        presentation?.loadUrl("https://m.twitch.tv")
+                        presentation?.loadUrl("https://open.spotify.com")
                     }
                     .build()
             )
             .addAction(
                 Action.Builder()
-                    .setTitle("Maps")
+                    .setTitle("Google")
                     .setOnClickListener {
-                        presentation?.loadUrl("https://maps.google.com")
+                        presentation?.loadUrl("https://www.google.com")
                     }
                     .build()
             )
